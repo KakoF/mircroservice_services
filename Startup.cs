@@ -60,6 +60,8 @@ namespace apiServer
               x.TokenValidationParameters = new TokenValidationParameters
               {
                 ValidateIssuerSigningKey = true,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
                       .GetBytes(Startup.StaticConfig.GetSection("private_key_token").Value)),
                 //ValidIssuer = "MainServer",
